@@ -19,6 +19,9 @@ class Araba {
     void sol(int);
     void sag(int);
     void dur();
+    void solFar(int, int);
+    void sagFar(int, int);
+    void dortlu(int, int, int);
 
   private:
     int sol1, sol2, sag1, sag2, hiz1, hiz2;

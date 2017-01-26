@@ -26,8 +26,7 @@ Araba::Araba(int _sol1, int _sol2, int _sag1, int _sag2, int _hiz1, int _hiz2) {
   hiz2 = _hiz2;
 
   Serial.begin(9600);
-  Serial.println("Araba Ayarlari Yapildi.");
-  Serial.println(sol1);
+  Serial.println("Aracin Ayarlari Yapildi.");
 
 }
 
@@ -101,3 +100,40 @@ void Araba::dur() {
 
 }
 
+void Araba::sagFar(int farPin, int durum) {
+  
+  if(durum == HIGH){
+    digitalWrite(farPin, HIGH);
+    Serial.println("Sag farlar yandi. Saga donuluyor.");  
+  }else {
+    digitalWrite(farPin, LOW);
+    Serial.println("Sag farlar sondu. Saga donuldu.");
+  }
+
+}
+
+void Araba::solFar(int farPin, int durum) {
+  
+  if(durum == HIGH){
+    digitalWrite(farPin, HIGH);
+    Serial.println("Sol farlar yandi. Sola donuluyor.");  
+  }else {
+    digitalWrite(farPin, LOW);
+    Serial.println("Sol farlar sondu. Sola donuldu.");
+  }
+
+}
+
+void Araba::dortlu(int solFarPin, int sagFarPin, int durum) {
+    
+    if(durum == HIGH){
+      digitalWrite(solFarPin, durum);
+      digitalWrite(sagFarPin, durum);
+      Serial.println("Dortluler yandi..");
+    }else {
+      digitalWrite(solFarPin, durum);
+      digitalWrite(sagFarPin, durum);
+      Serial.println("Dortluler Sondu..");  
+    }
+    
+}
